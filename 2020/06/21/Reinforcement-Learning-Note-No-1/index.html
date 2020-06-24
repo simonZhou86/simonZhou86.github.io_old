@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://simonzhou86.github.io/images/MAB.png">
 <meta property="og:image" content="https://simonzhou86.github.io/images/code_experiment.png">
 <meta property="article:published_time" content="2020-06-21T18:23:37.000Z">
-<meta property="article:modified_time" content="2020-06-23T23:06:20.758Z">
+<meta property="article:modified_time" content="2020-06-24T00:15:24.036Z">
 <meta property="article:author" content="Simon Zhou">
 <meta property="article:tag" content="Reinforcement Learning">
 <meta name="twitter:card" content="summary">
@@ -209,7 +209,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-23 19:06:20" itemprop="dateModified" datetime="2020-06-23T19:06:20-04:00">2020-06-23</time>
+                <time title="Modified: 2020-06-23 20:15:24" itemprop="dateModified" datetime="2020-06-23T20:15:24-04:00">2020-06-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -275,7 +275,7 @@
 <p>From the above formula, we know that we should aim to use an arm with a minimum suboptimality gap and try to avoid the one with larger gap.</p>
 <p>Now we can finally step into the solutions for Multi-armed bandit problem.</p>
 <h2 id="The-Explore-Then-Commit-Algorithm-for-Stochastic-Bandit-Problem-with-Finitely-many-Arms"><a href="#The-Explore-Then-Commit-Algorithm-for-Stochastic-Bandit-Problem-with-Finitely-many-Arms" class="headerlink" title="The Explore-Then-Commit Algorithm for Stochastic Bandit Problem with Finitely many Arms"></a>The Explore-Then-Commit Algorithm for Stochastic Bandit Problem with Finitely many Arms</h2><p>Note: In this and next algorithm, we assume that the reward distribution for all bandit instances are follow 1-sub-gaussian distribution for simplicity(The sub-gaussian constant is set to 1).</p>
-<h3 id="ETC-Algorithm"><a href="#ETC-Algorithm" class="headerlink" title="ETC Algorithm:"></a>ETC Algorithm:</h3><p>Often when we do not know which arm perform the best, we then most likely will to try every arm. Imagine that you try every arm 50 times, and the first arm always give you the best, so for the remaining trails, you have a higher probability to stick with the first arm. That is the intuition of this ETC algorithm. The algorithm is characterized by the number of times it explores each arm which denote by $ m \in \N$. The algorithm will explore for $ mk $ rounds before choosing a single arm for the rest of the round. ($k$ is the number of actions). The pseudo code is also very simple for this algorithm:</p>
+<h3 id="ETC-Algorithm"><a href="#ETC-Algorithm" class="headerlink" title="ETC Algorithm:"></a>ETC Algorithm:</h3><p>Often when we do not know which arm perform the best, we then most likely will to try every arm. Imagine that you try every arm 50 times, and the first arm always give you the best, so for the remaining trails, you have a higher probability to stick with the first arm. That is the intuition of this ETC algorithm. The algorithm is characterized by the number of times it explores each arm which denote by $ m \in \mathbb{N}$. The algorithm will explore for $ mk $ rounds before choosing a single arm for the rest of the round. ($k$ is the number of actions). The pseudo code is also very simple for this algorithm:</p>
 <ol>
 <li>Input $ m $</li>
 <li>In round $ t $ choose action:</li>
@@ -499,7 +499,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">by Simon Zhou 2020</span>
+  <span class="author" itemprop="copyrightHolder">by Simon Zhou</span>
 </div>
 
         
@@ -532,9 +532,14 @@
                 console.error('Failed to save visitor count', error);
               });
           } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
           }
         })
         .catch(error => {
@@ -561,7 +566,7 @@
         });
     }
 
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"IVDlJzvMaT5PBJv4SbIPrji2-gzGzoHsz","app_key":"itw2dSro5du78aQjcUJdYOz2","server_url":null,"security":true};
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"IVDlJzvMaT5PBJv4SbIPrji2-gzGzoHsz","app_key":"itw2dSro5du78aQjcUJdYOz2","server_url":null,"security":false};
     function fetchData(api_server) {
       var Counter = (method, url, data) => {
         return fetch(`${api_server}/1.1${url}`, {
