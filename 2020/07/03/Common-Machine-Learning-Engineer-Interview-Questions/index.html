@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lobster:300,300italic,400,400italic,700,700italic|Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"simonzhou86.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Introduction:Hello guys, Welcome back! In this article, I am going to share some common interview questions for the position of Machine Learning Engineer and Data Scientist. These questions are either">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Common Machine Learning Engineer Interview Questions">
+<meta property="og:url" content="https://simonzhou86.github.io/2020/07/03/Common-Machine-Learning-Engineer-Interview-Questions/index.html">
+<meta property="og:site_name" content="Simon&#39;s Blog">
+<meta property="og:description" content="Introduction:Hello guys, Welcome back! In this article, I am going to share some common interview questions for the position of Machine Learning Engineer and Data Scientist. These questions are either">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-03T19:37:45.000Z">
+<meta property="article:modified_time" content="2020-07-04T04:12:03.216Z">
+<meta property="article:author" content="Simon Zhou">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Algorithms">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://simonzhou86.github.io/2020/07/03/Common-Machine-Learning-Engineer-Interview-Questions/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Common Machine Learning Engineer Interview Questions | Simon's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Simon's Blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Undergraduate Researcher/Data Science/Machine Learning</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-contact">
+
+    <a href="/contact/" rel="section"><i class="far fa-address-book fa-fw"></i>contact</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/simonZhou86" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://simonzhou86.github.io/2020/07/03/Common-Machine-Learning-Engineer-Interview-Questions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/profilepic.jpg">
+      <meta itemprop="name" content="Simon Zhou">
+      <meta itemprop="description" content="Update from time to time. Stay tuned!">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Simon's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Common Machine Learning Engineer Interview Questions
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-07-03 15:37:45" itemprop="dateCreated datePublished" datetime="2020-07-03T15:37:45-04:00">2020-07-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-07-04 00:12:03" itemprop="dateModified" datetime="2020-07-04T00:12:03-04:00">2020-07-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Interview-Question/" itemprop="url" rel="index"><span itemprop="name">Interview Question</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2020/07/03/Common-Machine-Learning-Engineer-Interview-Questions/" class="post-meta-item leancloud_visitors" data-flag-title="Common Machine Learning Engineer Interview Questions" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/07/03/Common-Machine-Learning-Engineer-Interview-Questions/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/03/Common-Machine-Learning-Engineer-Interview-Questions/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction:"></a>Introduction:</h2><p>Hello guys, Welcome back! In this article, I am going to share some common interview questions for the position of Machine Learning Engineer and Data Scientist. These questions are either the one appeared on my previous interviews or from the internet. The questions will mainly focus on Machine Learning Algorithms and Mathematical Derivations, but I will also include some Data Structures &amp; Algorithms. Lots of these questions are for Internship and some are for New Grad position.</p>
+<a id="more"></a>
+
+<h2 id="Machine-Learning-Algorithm-Questions"><a href="#Machine-Learning-Algorithm-Questions" class="headerlink" title="Machine Learning Algorithm Questions:"></a>Machine Learning Algorithm Questions:</h2><h3 id="1-What-is-Supervised-and-Unsupervised-Learning"><a href="#1-What-is-Supervised-and-Unsupervised-Learning" class="headerlink" title="1. What is Supervised and Unsupervised Learning?"></a>1. What is Supervised and Unsupervised Learning?</h3><p>Supervised Learning are used for Classification or Regression, where there are training labels in dataset. Bias-Variance trade-off and Model complexity will be considered in Supervised Learning. Unsupervised Learning, however, does not require training labels, people usually wish to learn he inherent structure from the data.<br>Supervised Learning Algorithm: Linear Regression, Tree-Based Method, SVM…<br>Unsupervised Learning Algorithm: K-Means Clustering, Dimension Reduction</p>
+<h3 id="2-Bagging-Vs-Boosting"><a href="#2-Bagging-Vs-Boosting" class="headerlink" title="2. Bagging Vs. Boosting"></a>2. Bagging Vs. Boosting</h3><p>Bagging: Idea of sample with replace. N new training data sets are produced by <strong>random sampling with replacement</strong>. Prediction rule of bagging is average the responses among all learners. It works well for high variance and low bias procedures. Support multi-processing for weak learners.<br>Boosting: Will use the same dataset for all epoch. Sequentially select prediction rule(New model is related to previous one). Boosting uses weighted average among all learners. It works well for low variance and high bias.</p>
+<h3 id="3-Random-Forest-Vs-GBDT"><a href="#3-Random-Forest-Vs-GBDT" class="headerlink" title="3. Random Forest Vs. GBDT:"></a>3. Random Forest Vs. GBDT:</h3><p>Random Forest: can be formed by either regression tree or classification tree. Trees in Random Forest can be formed parallelly. Results from Random Forest are mostly generated by majority voting. Random Forest is not very sensitive with outliers and it treated each learner equally. Random Forest is improved by reducing variance.</p>
+<p>GBDT: can be formed by only regression tree. Trees in GBDT can be formed sequentially. Results from GBDT is generated by weighted sum. GBDT is very sensitive with outliers and ensembled by weighted weak learners. GBDT is improved by reducing bias.</p>
+<h3 id="4-Why-Bagging-can-reduce-variance"><a href="#4-Why-Bagging-can-reduce-variance" class="headerlink" title="4. Why Bagging can reduce variance?"></a>4. Why Bagging can reduce variance?</h3><p>Bagging is a collection of some learners. Because bagging is the idea of sample with replace, these independent learners may result in overfitting (high variance). Therefore by averaging these learners can reduce variance.</p>
+<h3 id="5-Please-derive-GBDT-algorithm-and-explain-in-what-situation-GBDT-can-be-used"><a href="#5-Please-derive-GBDT-algorithm-and-explain-in-what-situation-GBDT-can-be-used" class="headerlink" title="5. Please derive GBDT algorithm and explain in what situation GBDT can be used:"></a>5. Please derive GBDT algorithm and explain in what situation GBDT can be used:</h3><p>loss function:<br>$$<br>F^* = argmin E_{x,y} [L(y,F(x))]<br>$$<br>$$<br>F(x;\rho_m,a_m) = \sum_{m=o}^{M} \rho_m h(x;a_m)<br>$$<br>for m=1 to N, do following,<br>$$<br>g_m(x) = - \frac{\partial E_y[L(y, F(x)) | x]}{\partial F(x)} \ evaluate \ at \ F(x) = F_{m-1}(x) \quad (1)<br>$$<br>$$<br>\rho_m = argmin E_y[L(y, F_{m-1}(x) + \rho g_m(x))|x] \quad (2)<br>$$<br>$$<br>f_m(x) = \rho_m g_m(x) \quad (3)<br>$$<br>$$<br>F_m(x) = F_{m-1}(x) + \rho_m g_m(x) \quad (4)<br>$$<br>End for loop. And then, we sum up all trees to get:<br>$$<br>F^*(x) \approx F_M(x) = F_0(x) + \sum_{m=1}^{M}\rho_m g_m(x)<br>$$</p>
+<p>GBDT can used for regression problems, no matter it is linear or nonlinear. </p>
+<h3 id="6-How-could-you-do-if-L1-is-not-differentiable"><a href="#6-How-could-you-do-if-L1-is-not-differentiable" class="headerlink" title="6. How could you do if L1 is not differentiable?"></a>6. How could you do if L1 is not differentiable?</h3><p>When loss function is not differentiable, the gradient descent is then not applicable. In this case, we may use Coordinate descent algorithm. Coordinate descent algorithm is done by follow the direction of coordinate. If we have $p$ features, we may fix value of the first $p-1$ features, and find the optimal one for $p^{th}$ feature. Repeat the step until convergence.</p>
+<h3 id="7-How-could-you-dealing-with-unbalanced-data"><a href="#7-How-could-you-dealing-with-unbalanced-data" class="headerlink" title="7. How could you dealing with unbalanced data?"></a>7. How could you dealing with unbalanced data?</h3><p>Large discrepancy between positive and negative data.<br>Pick the right score matrix. For example: use F1 score, precision score , AUC.<br>Other techniques: oversampling/undersampling (not recommended), use KNN algorithm to produce similar data(SMOTE)</p>
+<h3 id="8-What-are-some-common-activation-functions-in-Neural-Networks-What’s-the-purpose-of-standardization"><a href="#8-What-are-some-common-activation-functions-in-Neural-Networks-What’s-the-purpose-of-standardization" class="headerlink" title="8. What are some common activation functions in Neural Networks? What’s the purpose of standardization?"></a>8. What are some common activation functions in Neural Networks? What’s the purpose of standardization?</h3><p>Commonly used activation functions: Sigmoid(logistic), TanH, ReLu, Softmax (for output layer)<br>Modified ReLu: leaky ReLu, Exponential Lu, Parametric ReLu<br>Purpose of standardization: improve accuracy and speed of gradient descent to find the solution</p>
+<h3 id="9-What-is-the-difference-between-L1-and-L2-regularization"><a href="#9-What-is-the-difference-between-L1-and-L2-regularization" class="headerlink" title="9. What is the difference between L1 and L2 regularization?"></a>9. What is the difference between L1 and L2 regularization?</h3><p>When adding a sum of the absolute value of all coefficients to loss function, this is L1.<br>When adding a sum of the square of all coefficients to loss function, this is L2.<br>$$<br>L1:\ L(\beta) = ||Y-X\beta||^2 + \lambda \sum_{j=1}^{p}|\beta_j|<br>$$<br>$$<br>L2: \ L(\beta) = ||Y-X\beta||^2 + \lambda \sum_{j=1}^{p}\beta_j^2<br>$$<br>L1 shrinks the less significant features’ coefficient to zero(sparsity), which has the same effect of variable selection.<br>L2 does not perform the same as L1, even if some coefficient is really small, L2 will keep it as the same. Mostly use for prevent overfitting.</p>
+<h3 id="10-Could-L2-regularization-solve-for-collinearity-problem-Explain-it-mathematically"><a href="#10-Could-L2-regularization-solve-for-collinearity-problem-Explain-it-mathematically" class="headerlink" title="10. Could L2 regularization solve for collinearity problem? Explain it mathematically"></a>10. Could L2 regularization solve for collinearity problem? Explain it mathematically</h3><p>Consider a simple linear regression case: $Y = \theta_0 + \theta_1x_1 + … + \theta_nx_n + \epsilon$  Solve for $\hat{\theta}$ we have: $\hat{\theta}$= $(X^TX)^{-1}X^Ty$.<br>Collinearity may appears from the following scenario: if a column can be written as a linear combination other columns, then we may have a problem.<br>Mathematically, the matrix $X^TX$ is not full rank anymore, then it could not be inverted. Further means that the $\hat{\theta}$ may have infinitely many solutions.<br>However, if we add a L2 regularization term then minimized:<br>$$<br>g(\theta) = min(||Y-X\theta||^2 + \lambda||\theta||^2)<br>$$<br>Compute the partial derivation with respect to $\theta$ and set to 0:<br>$$<br>\nabla g(\theta) = 2X^TX\theta - 2X^TY + 2I\theta\lambda = 0<br>$$<br>implies:<br>$$<br>\hat{\theta} = (X^TX+\lambda I)^{-1} X^TY \quad (1)<br>$$<br>Where in equation 1, the matrix is invertible now. Therefore, L2 can solve collinearity problems.</p>
+<h2 id="Data-Structure-and-Algorithm-Questions"><a href="#Data-Structure-and-Algorithm-Questions" class="headerlink" title="Data Structure and Algorithm Questions:"></a>Data Structure and Algorithm Questions:</h2><h3 id="1-Given-a-sorted-array-construct-balance-binary-search-tree"><a href="#1-Given-a-sorted-array-construct-balance-binary-search-tree" class="headerlink" title="1. Given a sorted array, construct balance binary search tree."></a>1. Given a sorted array, construct balance binary search tree.</h3><p>Very easy question, using binary search.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">construct</span><span class="params">(numlist)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> len(numlist) == <span class="number">0</span>:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">	k = len(numlist) - <span class="number">1</span></span><br><span class="line">	<span class="keyword">return</span> generate(numlist, <span class="number">0</span>, k)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate</span><span class="params">(numlist, start, end)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> start &gt; end:</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">	mid = (start + end) // <span class="number">2</span></span><br><span class="line">	root = TreeNode(numlist[mid])</span><br><span class="line">	root.left = generate(numlist, start, mid<span class="number">-1</span>)</span><br><span class="line">	root.right = generate(numlist, mid+<span class="number">1</span>, end)</span><br><span class="line">	<span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-How-many-ways-to-reach-Kth-stairs-if-you-can-only-go-one-stair-or-two-stairs-at-a-time"><a href="#2-How-many-ways-to-reach-Kth-stairs-if-you-can-only-go-one-stair-or-two-stairs-at-a-time" class="headerlink" title="2. How many ways to reach Kth stairs if you can only go one stair or two stairs at a time?"></a>2. How many ways to reach Kth stairs if you can only go one stair or two stairs at a time?</h3><p>Very basic dynamic programming question:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solution</span><span class="params">(k)</span>:</span></span><br><span class="line">	<span class="keyword">if</span> k &lt; <span class="number">1</span>:</span><br><span class="line">		<span class="keyword">return</span> k</span><br><span class="line">	dp = [<span class="number">0</span>] * (k+<span class="number">1</span>)</span><br><span class="line">	dp[<span class="number">0</span>], dp[<span class="number">1</span>] = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, n+<span class="number">1</span>):</span><br><span class="line">		dp[i] = dp[i<span class="number">-1</span>] + dp[i<span class="number">-2</span>]</span><br><span class="line">	<span class="keyword">return</span> dp[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-How-do-you-dealing-with-collision-in-Hash-Table"><a href="#3-How-do-you-dealing-with-collision-in-Hash-Table" class="headerlink" title="3. How do you dealing with collision in Hash Table?"></a>3. How do you dealing with collision in Hash Table?</h3><p>Open addressing technique. Generate new index in order to avoid collision. There are three ways:</p>
+<ol>
+<li>Linear Probing(Linked List): store all values that in the same index to a linked list.</li>
+<li>Quadratic Probing: construct the new index by adding successive values of a random polynomial until an open slot is found</li>
+<li>Double hash: use a second hash function to the current index until an open slot is found.</li>
+</ol>
+<h3 id="4-Java-OOP-Abstract-Class-Vs-Interface"><a href="#4-Java-OOP-Abstract-Class-Vs-Interface" class="headerlink" title="4. Java OOP Abstract Class Vs. Interface:"></a>4. Java OOP Abstract Class Vs. Interface:</h3><p>A Java class can implemented multiple interfaces, but it can only inheritance one abstract class. Functions in interface are default to public type, but in abstract class, functions can be protected. We can not define attributes in interface, but in abstract class we could.</p>
+<h3 id="5-SQL-question-Difference-between-count-count-colname-and-count"><a href="#5-SQL-question-Difference-between-count-count-colname-and-count" class="headerlink" title="5. SQL question: Difference between count(), count(colname) and count(*)?"></a>5. SQL question: Difference between count(), count(colname) and count(*)?</h3><p>count(1) and count(<em>)</em> will not ignore NULL values, count(colname) will ignore NULL.<br>If column name is primary key, then count(colname) is faster than other two. If you want to count through multiple column and there is no primary key for these columns, count(1) will have the execution priority.</p>
+<p>Ok, that’s it for now. You can see that ML engineer requires a solid statistical learning knowledge as well as coding skill. The mathematical derivation is actually happened in the interview, you should be very familiar with those stuff before you go for an interview. I will upload more questions later. Stay Tuned~</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>I like drinking tea while writing blogs, if you enjoy my posts or find them helpful, I wouldn't mind for $1-2 donations ╰(*°▽°*)╯</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="Simon Zhou WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/paypal.jpg" alt="Simon Zhou PayPal">
+        <p>PayPal</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+              <a href="/tags/Algorithms/" rel="tag"># Algorithms</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/21/Reinforcement-Learning-Note-No-1/" rel="prev" title="ETC Vs. UCB Algorithm">
+      <i class="fa fa-chevron-left"></i> ETC Vs. UCB Algorithm
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Learning-Algorithm-Questions"><span class="nav-number">2.</span> <span class="nav-text">Machine Learning Algorithm Questions:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-What-is-Supervised-and-Unsupervised-Learning"><span class="nav-number">2.1.</span> <span class="nav-text">1. What is Supervised and Unsupervised Learning?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Bagging-Vs-Boosting"><span class="nav-number">2.2.</span> <span class="nav-text">2. Bagging Vs. Boosting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Random-Forest-Vs-GBDT"><span class="nav-number">2.3.</span> <span class="nav-text">3. Random Forest Vs. GBDT:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Why-Bagging-can-reduce-variance"><span class="nav-number">2.4.</span> <span class="nav-text">4. Why Bagging can reduce variance?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Please-derive-GBDT-algorithm-and-explain-in-what-situation-GBDT-can-be-used"><span class="nav-number">2.5.</span> <span class="nav-text">5. Please derive GBDT algorithm and explain in what situation GBDT can be used:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-How-could-you-do-if-L1-is-not-differentiable"><span class="nav-number">2.6.</span> <span class="nav-text">6. How could you do if L1 is not differentiable?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-How-could-you-dealing-with-unbalanced-data"><span class="nav-number">2.7.</span> <span class="nav-text">7. How could you dealing with unbalanced data?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-What-are-some-common-activation-functions-in-Neural-Networks-What’s-the-purpose-of-standardization"><span class="nav-number">2.8.</span> <span class="nav-text">8. What are some common activation functions in Neural Networks? What’s the purpose of standardization?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-What-is-the-difference-between-L1-and-L2-regularization"><span class="nav-number">2.9.</span> <span class="nav-text">9. What is the difference between L1 and L2 regularization?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-Could-L2-regularization-solve-for-collinearity-problem-Explain-it-mathematically"><span class="nav-number">2.10.</span> <span class="nav-text">10. Could L2 regularization solve for collinearity problem? Explain it mathematically</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Structure-and-Algorithm-Questions"><span class="nav-number">3.</span> <span class="nav-text">Data Structure and Algorithm Questions:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Given-a-sorted-array-construct-balance-binary-search-tree"><span class="nav-number">3.1.</span> <span class="nav-text">1. Given a sorted array, construct balance binary search tree.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-How-many-ways-to-reach-Kth-stairs-if-you-can-only-go-one-stair-or-two-stairs-at-a-time"><span class="nav-number">3.2.</span> <span class="nav-text">2. How many ways to reach Kth stairs if you can only go one stair or two stairs at a time?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-How-do-you-dealing-with-collision-in-Hash-Table"><span class="nav-number">3.3.</span> <span class="nav-text">3. How do you dealing with collision in Hash Table?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Java-OOP-Abstract-Class-Vs-Interface"><span class="nav-number">3.4.</span> <span class="nav-text">4. Java OOP Abstract Class Vs. Interface:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-SQL-question-Difference-between-count-count-colname-and-count"><span class="nav-number">3.5.</span> <span class="nav-text">5. SQL question: Difference between count(), count(colname) and count(*)?</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Simon Zhou"
+      src="/images/profilepic.jpg">
+  <p class="site-author-name" itemprop="name">Simon Zhou</p>
+  <div class="site-description" itemprop="description">Update from time to time. Stay tuned!</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/simonZhou86" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;simonZhou86" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhoumeng986@gmail.com" title="E-Mail → mailto:zhoumeng986@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/simon-zhou-6021a7169/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;simon-zhou-6021a7169&#x2F;" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">by Simon Zhou</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'IVDlJzvMaT5PBJv4SbIPrji2-gzGzoHsz',
+      appKey     : 'itw2dSro5du78aQjcUJdYOz2',
+      placeholder: "Comment goes here",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

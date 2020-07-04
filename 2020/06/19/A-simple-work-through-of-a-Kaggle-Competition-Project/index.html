@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"simonzhou86.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Hi guys, welcome back! In this article, I will guide you to solve a kaggle competition project. This project is called “What’s Cooking”, and it is a classification problem. I will be using Logistic Re">
+  <meta name="description" content="AbstractHi guys, welcome back! In this article, I will guide you to solve a Kaggle competition project. This project is called “What’s Cooking”, which is a classification problem. I will be using Logi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Kaggle Competition Project - What&#39;s Cooking (With Code!)">
 <meta property="og:url" content="https://simonzhou86.github.io/2020/06/19/A-simple-work-through-of-a-Kaggle-Competition-Project/index.html">
 <meta property="og:site_name" content="Simon&#39;s Blog">
-<meta property="og:description" content="Hi guys, welcome back! In this article, I will guide you to solve a kaggle competition project. This project is called “What’s Cooking”, and it is a classification problem. I will be using Logistic Re">
+<meta property="og:description" content="AbstractHi guys, welcome back! In this article, I will guide you to solve a Kaggle competition project. This project is called “What’s Cooking”, which is a classification problem. I will be using Logi">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-06-19T18:17:26.000Z">
-<meta property="article:modified_time" content="2020-06-23T23:59:12.156Z">
+<meta property="article:modified_time" content="2020-07-03T04:59:12.606Z">
 <meta property="article:author" content="Simon Zhou">
 <meta property="article:tag" content="Python">
 <meta property="article:tag" content="Machine Learning">
@@ -206,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-06-23 19:59:12" itemprop="dateModified" datetime="2020-06-23T19:59:12-04:00">2020-06-23</time>
+                <time title="Modified: 2020-07-03 00:59:12" itemprop="dateModified" datetime="2020-07-03T00:59:12-04:00">2020-07-03</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -226,6 +226,20 @@
               <span class="post-meta-item-text">Views: </span>
               <span class="leancloud-visitors-count"></span>
             </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/2020/06/19/A-simple-work-through-of-a-Kaggle-Competition-Project/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/06/19/A-simple-work-through-of-a-Kaggle-Competition-Project/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -236,7 +250,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Hi guys, welcome back! In this article, I will guide you to solve a kaggle competition project. This project is called “What’s Cooking”, and it is a classification problem. I will be using Logistic Regression, Support Vector Machine and Neural Network in this project, but I will talk these algorithms later. So stay with me!</p>
+        <h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Hi guys, welcome back! In this article, I will guide you to solve a Kaggle competition project. This project is called “What’s Cooking”, which is a classification problem. I will be using Logistic Regression, Support Vector Machine and Neural Network in this project, but I will talk these algorithms later. So stay with me!</p>
 <a id="more"></a>
 
 <p>To start of, I will discuss from the following objectives in this article:</p>
@@ -248,7 +262,59 @@
 <li>Conclusion &amp; What can be improved</li>
 </ol>
 <p>Project Link: <a href="https://www.kaggle.com/c/whats-cooking-kernels-only/notebooks" target="_blank" rel="noopener">https://www.kaggle.com/c/whats-cooking-kernels-only/notebooks</a> </p>
-<p>/// Not finished yet, I will upload the rest later////</p>
+<h2 id="1-Data-Preparation"><a href="#1-Data-Preparation" class="headerlink" title="1. Data Preparation:"></a>1. Data Preparation:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train = pd.read_json(<span class="string">"train.json"</span>)</span><br><span class="line">test = pd.read_json(<span class="string">"test.json"</span>)</span><br></pre></td></tr></table></figure>
+<p>Note that for ingredients column, all ingredients for each cuisine is in a list, we have to fix that later.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">classes = train.cuisine.value_counts().unique()</span><br><span class="line">len(classes)</span><br></pre></td></tr></table></figure>
+<p>Since this is a classification problem, we have to know how many classes are there for us to predict. In this project, there are 20 classes.</p>
+<h2 id="2-Data-Visualization"><a href="#2-Data-Visualization" class="headerlink" title="2. Data Visualization:"></a>2. Data Visualization:</h2><p>The intuition for this section is to have a better understanding of the data. First of all, we are going to see what types of cuisine have the most amount of recipes.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">train_class = train[<span class="string">"cuisine"</span>]</span><br><span class="line">train_class.value_counts().plot(kind = <span class="string">"bar"</span>)</span><br></pre></td></tr></table></figure>
+<p>Bar plot of 20 types of cuisine. Italian, Mexican and southern US are the top 3 cuisines.<br>Next, we are going to visualize Top 10 ingredients in all recipes:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ingre_counts = pd.DataFrame(pd.Series(ingre_list).value_counts())</span><br><span class="line">ingre_counts = ingre_counts[:<span class="number">10</span>] <span class="comment"># top 10</span></span><br><span class="line">ingre_counts.columns = [<span class="string">"count"</span>]</span><br><span class="line">ingre_counts.plot(kind = <span class="string">"bar"</span>)</span><br></pre></td></tr></table></figure>
+<p>We also want to know whether there exists outliers in this dataset:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sns.boxplot(x = <span class="string">"cuisine"</span>, y = <span class="string">"total_ingre"</span>, data = train) <span class="comment"># Seaborn module</span></span><br></pre></td></tr></table></figure>
+<p>For more analysis, you can find the code from my github page(link in rught side bar).</p>
+<h2 id="3-Feature-Engineering"><a href="#3-Feature-Engineering" class="headerlink" title="3. Feature Engineering:"></a>3. Feature Engineering:</h2><p>From the previous section,  we already have a basic understanding of our data. In this section, we are going to look closer at the data and prepare it for Machine Learning Algorithm.</p>
+<h3 id="Remove-special-characters"><a href="#Remove-special-characters" class="headerlink" title="Remove special characters:"></a>Remove special characters:</h3><p>If you pay attention to the data, you might see some ingredients contain special characters like: “!, %, &amp;…”. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">special_char = <span class="string">' '</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> set(<span class="string">' '</span>.join(ingre_list)):</span><br><span class="line">    <span class="keyword">if</span> re.findall(<span class="string">'[^A-Za-z]'</span>, char):</span><br><span class="line">    	special_char += char</span><br><span class="line">sorted(special_char)</span><br></pre></td></tr></table></figure>
+<p>The above code will generate a list of special character. Now it is the time to clean these data to something that the machine can really learn from. </p>
+<p>The package I used is WordNetLemmatizer and regex. Lemmatizer package can change the tense and accent of a word, so that every word will have the same tense and accent (ie. if you have a word “went” and a word “go”, you apply a algorithm to both of the words, you may get a totally different answer. By using lemmatizer, the two words will change to “go” and you will get the identical answer from algorithm).</p>
+<p>If you are studying Computer Science, you must know Regex. This is a power tool for processing string. In is project, I used this “re” package to remove all special characters. Both training and testing dataset has to be cleaned. The detailed code can be found on my GitHub.</p>
+<h3 id="Remove-outlier"><a href="#Remove-outlier" class="headerlink" title="Remove outlier:"></a>Remove outlier:</h3><p>I simply removed the recipes that contain exactly one ingredient and contain more than 60 ingredients.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">train_no_outlier = train_data[(train_data[<span class="string">"total_ingre"</span>] &gt; <span class="number">1</span>) &amp; (train_data[<span class="string">"total_ingre"</span>] &lt; <span class="number">60</span>)].reset_index(drop = <span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h3 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF:"></a>TF-IDF:</h3><p>Reference: 1.<a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Tf%E2%80%93idf</a><br>In order to use ingredients in the model, I have to convert string values to numeric values so that the computer can do mathematical operations. There are many ways to convert string to numeric values, one popular method is one hot encoding. However, since each recipe just have a few ingredients in common(like salt, water, oil), the sparse matrix generated after one-hot encoding will be very large and will slow the calculation speed. The other method would be just extract some significant ingredients in each recipe. One way to extract important term in each recipe is to use TF-IDF(Term Frequency - Inverse Document Frequency). </p>
+<p>The TF-IDF algorithm can be used directly from Scikit-Learn Module. I also performed SVD in this dataset because the dimension is too large to run ML algorithm properly on my computer.<br>In this case, I used Truncated SVD.</p>
+<h2 id="4-Building-model"><a href="#4-Building-model" class="headerlink" title="4. Building model:"></a>4. Building model:</h2><p>I chose three ML algorithms: Logistic Regression, Support Vector Machine and Neural Networks.</p>
+<p>Before applying any models, I spited the original dataset to training and validating dataset. This can be done by train_test_split function in Python Scikit Learn module. I split the original training dataset to 80% training for training and 20% training for validating.</p>
+<h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression:"></a>Logistic Regression:</h3><p>Logistic Regression is picked by the following reason:</p>
+<ol>
+<li>The task is a classification problem, even though it has 20 different classes for us to predict.</li>
+<li>The OVR(One-Vs-Rest) options allow logistic regression to predict multiclass case.</li>
+<li>OVR logistic regression will train a separate model for each cuisine predicted whether a raw of ingredients belongs to that class or not.</li>
+</ol>
+<p>How to tune?<br>The Scikit-Learn Module has a package called GridSearchCV. This package is used for tuning parameters of any algorithms.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">lr = LogisticRegression() <span class="comment"># initialize model</span></span><br><span class="line">parameters = &#123; <span class="comment"># hyperparameter grid</span></span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">0.01</span>, <span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>, <span class="number">100</span>, <span class="number">200</span>],</span><br><span class="line">    <span class="string">'penalty'</span>: [<span class="string">'l1'</span>, <span class="string">'l2'</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cv = GridSearchCV(lr, parameters, n_jobs = <span class="number">-1</span>) <span class="comment"># will use default 3-fold cross validation</span></span><br><span class="line">cv.fit(X_train, y_train)</span><br><span class="line"></span><br><span class="line">print_results(cv)</span><br></pre></td></tr></table></figure>
+<p>The logistic regression gives a pretty good score.(0.78)</p>
+<h3 id="Support-Vector-Machine"><a href="#Support-Vector-Machine" class="headerlink" title="Support Vector Machine"></a>Support Vector Machine</h3><p>SVM is picked by the following reason:</p>
+<ol>
+<li>It has a kernel option which can transform the data and finds an optimal boundary between possible values. The kernel option may perform very complexity data transformations, and then figure out how to separate for different classes. In this case, since our matrix is very huge, I will use Linear kernel instead of RBF kernel because linear kernel costs less time than RBF.</li>
+<li>SVM could also be non-linear, this means the boundary does not have to be straight line. When the boundary is polynomial, the algorithm can capture more details and more complex relations between data and labels. I will be using linear boundary for less computability.</li>
+</ol>
+<p>The tuning method is as same as in logistic regression:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">svc = LinearSVC(multi_class = <span class="string">'ovr'</span>, max_iter = <span class="number">1500</span>, dual = <span class="literal">False</span>) <span class="comment"># use linear svm because of limitation of computability</span></span><br><span class="line">parameters = &#123;</span><br><span class="line">    <span class="string">'C'</span>: [<span class="number">0.01</span>, <span class="number">0.03</span>, <span class="number">0.1</span>, <span class="number">1</span>, <span class="number">10</span>],</span><br><span class="line">    <span class="string">'penalty'</span>: [<span class="string">'l1'</span>, <span class="string">'l2'</span>]</span><br><span class="line">&#125;</span><br><span class="line">svc_cv = GridSearchCV(svc, parameters, verbose = <span class="number">2</span>, n_jobs = <span class="number">-1</span>)</span><br><span class="line">svc_cv.fit(X_train_scale, y_train)</span><br><span class="line"></span><br><span class="line">print_results(svc_cv)</span><br></pre></td></tr></table></figure>
+<p>The accuracy score for SVM is quiet similar to logistic regression.</p>
+<h3 id="Neural-Network"><a href="#Neural-Network" class="headerlink" title="Neural Network:"></a>Neural Network:</h3><p>Neural Network using Keras:<br>I decide to try Keras which is a library for constructing neural networks. I implemented Keras in Google Colab because it can allow me to use GPU instead of CPU, which will save lots of time. There are some advantages for using Keras:</p>
+<ol>
+<li>No need to reduce dimension. Since I am running on GPU, the original size is fine.</li>
+<li>No need to standardize the data separately. There is a parameter in Keras called kernel initializer. One of the options is named he.normal(), which is a function for initialize standard normal distribution.</li>
+</ol>
+<p>You can also use GridSearchCV for tuning. But in this project I just tried some combinations of layers, neurons and activation function.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">model = keras.Sequential()</span><br><span class="line">model.add(keras.layers.Dense(<span class="number">2000</span>, kernel_initializer = keras.initializers.he_normal(seed=<span class="number">0</span>), activation=<span class="string">'relu'</span>, input_dim=<span class="number">2735</span>)) <span class="comment"># input dimension is the number of columns that after TF-IDF transformation give me</span></span><br><span class="line">model.add(keras.layers.Dropout(<span class="number">0.80</span>))  <span class="comment"># set dropout to 0.80, which means drop out 80% of data for every epoch, prevent overfitting </span></span><br><span class="line">model.add(keras.layers.Dense(<span class="number">1024</span>, kernel_initializer = keras.initializers.he_normal(seed=<span class="number">0</span>), activation=<span class="string">'relu'</span>)) </span><br><span class="line">model.add(keras.layers.Dropout(<span class="number">0.50</span>)) <span class="comment">#0.5</span></span><br><span class="line">model.add(keras.layers.Dense(<span class="number">256</span>, kernel_initializer = keras.initializers.he_normal(seed=<span class="number">1</span>), activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(keras.layers.Dropout(<span class="number">0.60</span>))<span class="comment">#0.6</span></span><br><span class="line"><span class="comment">#model.add(keras.layers.Dense(40, kernel_initializer=keras.initializers.he_normal(seed=2), activation='relu'))</span></span><br><span class="line"><span class="comment">#model.add(keras.layers.Dropout(0.20))</span></span><br><span class="line">model.add(keras.layers.Dense(<span class="number">20</span>, kernel_initializer = keras.initializers.RandomNormal(mean=<span class="number">0.0</span>, stddev=<span class="number">0.05</span>, seed=<span class="number">3</span>), activation=<span class="string">'softmax'</span>))</span><br><span class="line">model.compile(optimizer=<span class="string">'adam'</span>, loss=<span class="string">'categorical_crossentropy'</span>, metrics=[<span class="string">'accuracy'</span>])</span><br></pre></td></tr></table></figure>
+
+<p>I selected 2000 neurons(features) in first layer and drop rate is 0.8, means that for every epoch I want to drop 80% of features between first and second layer. 80% of dropout rate will guarantee each layer should almost have different features input. This operation will further prevent for overfitting. Second layer and third layer contain 1024 neurons and 256 neurons respectively. The output layer has dimension of 20 since there are only 20 classes in training dataset. The activation function is softmax since this function appears in most of classification problems. The average validation score for all epochs is 0.80. This algorithm achieves accuracy score of 0.802. </p>
+<p>I will explain what is activation function, dropout and other ML algorithm related term in other blog.</p>
+<h2 id="Comclusion"><a href="#Comclusion" class="headerlink" title="Comclusion:"></a>Comclusion:</h2><p>Now you may have a basic idea on how to work on a Data Science Project. However, this is not enough if you want to rank a higher place in some competitions. The key for every Data Science Project is how you understand the data, how you perform feature engineering on the data and how you choose the ML algorithms. </p>
+<p>The full code can be found on my Github page. (you can find it on right side bar of my website.)<br>See you in next article~</p>
 
     </div>
 
@@ -307,6 +373,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -353,6 +420,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Abstract"><span class="nav-number">1.</span> <span class="nav-text">Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Data-Preparation"><span class="nav-number">2.</span> <span class="nav-text">1. Data Preparation:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Data-Visualization"><span class="nav-number">3.</span> <span class="nav-text">2. Data Visualization:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Feature-Engineering"><span class="nav-number">4.</span> <span class="nav-text">3. Feature Engineering:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Remove-special-characters"><span class="nav-number">4.1.</span> <span class="nav-text">Remove special characters:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Remove-outlier"><span class="nav-number">4.2.</span> <span class="nav-text">Remove outlier:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TF-IDF"><span class="nav-number">4.3.</span> <span class="nav-text">TF-IDF:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Building-model"><span class="nav-number">5.</span> <span class="nav-text">4. Building model:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-Regression"><span class="nav-number">5.1.</span> <span class="nav-text">Logistic Regression:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Support-Vector-Machine"><span class="nav-number">5.2.</span> <span class="nav-text">Support Vector Machine</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Neural-Network"><span class="nav-number">5.3.</span> <span class="nav-text">Neural Network:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Comclusion"><span class="nav-number">6.</span> <span class="nav-text">Comclusion:</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,20 +436,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -433,97 +501,6 @@
 
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"IVDlJzvMaT5PBJv4SbIPrji2-gzGzoHsz","app_key":"itw2dSro5du78aQjcUJdYOz2","server_url":null,"security":false};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
       </div>
@@ -531,6 +508,7 @@
   </div>
 
   
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
   <script src="/lib/anime.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
@@ -569,6 +547,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'IVDlJzvMaT5PBJv4SbIPrji2-gzGzoHsz',
+      appKey     : 'itw2dSro5du78aQjcUJdYOz2',
+      placeholder: "Comment goes here",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
